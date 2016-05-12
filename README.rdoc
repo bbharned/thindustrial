@@ -1,6 +1,6 @@
 == README
 
-This app is still in the infant and concept stage.  Read e will be updated as the app develops in the newxt few months. 
+This app is still in the infant and concept stage.  Read me will be updated as the app develops in the newxt few months. 
 
 
 
