@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'login', to: 'pages#login'
   get 'register', to: 'pages#register'
+  get 'sponsors', to: 'pages#sponsors'
+  get 'schedule', to: 'pages#schedule'
+  get 'contact', to: 'pages#contact'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

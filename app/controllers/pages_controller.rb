@@ -6,9 +6,11 @@ class PagesController < ApplicationController
 	end
 
 
+
 	def login
 
 	end
+
 
 
 	def register
@@ -16,7 +18,20 @@ class PagesController < ApplicationController
 	end
 
 
+
 	def schedule
+
+	end
+
+
+
+	def sponsors
+
+	end
+
+
+
+	def contact
 
 	end
 
