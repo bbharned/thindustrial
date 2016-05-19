@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Usersrakes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Routes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usersrakes.each do |usersrake| %>
+      <tr>
+        <td><%= usersrake.routes %></td>
+        <td><%= link_to 'Show', usersrake %></td>
+        <td><%= link_to 'Edit', edit_usersrake_path(usersrake) %></td>
+        <td><%= link_to 'Destroy', usersrake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Usersrake', new_usersrake_path %>
