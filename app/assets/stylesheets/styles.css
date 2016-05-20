@@ -62,8 +62,9 @@ body, html {
 .nav-bar a:hover {
 	text-decoration: underline;
 }
-.content-box {
-	width:96%; padding: 0px 2%; max-width: 1100px; margin:auto;
+
+.hp-main-logo {
+	width:95%; max-width: 600px; margin: auto; margin-top: 10%;
 }
 
 
