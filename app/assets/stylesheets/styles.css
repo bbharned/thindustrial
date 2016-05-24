@@ -65,7 +65,9 @@ a:hover {
 .nav-bar a:hover {
 	text-decoration: underline;
 }
-
+.close {
+	margin-top: -5px;
+}
 .hp-main-logo {
 	width:95%; max-width: 600px; margin: auto; margin-top: 10%;
 }

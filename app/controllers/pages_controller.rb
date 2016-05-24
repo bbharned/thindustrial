@@ -6,19 +6,6 @@ class PagesController < ApplicationController
 	end
 
 
-
-	def login
-
-	end
-
-
-
-	def register
-
-	end
-
-
-
 	def schedule
 
 	end
