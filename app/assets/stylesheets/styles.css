@@ -99,3 +99,15 @@ small {
 	font-size:.75em; color: #666666; 
 }
 
+
+/********* Register Section *****************/
+@media screen and (max-width:767px) {
+
+.register-div #city,
+.register-div #state,
+.register-div #email {
+	margin-bottom:12px;
+} 
+
+}
+
