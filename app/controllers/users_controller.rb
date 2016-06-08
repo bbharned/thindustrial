@@ -15,20 +15,39 @@ def create
 	end
 
 end
+
+
+def edit
+    @user = User.find(params[:id])
+end
+  
+
+  
+def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+    	flash[:success] = "Your Account Was Sucessfully Updated"
+    	redirect_to courses_path
+    else
+    	render 'edit'
+    end
+end
+
+
   
  private 
  def user_params
     params.require(:user).permit(:firstname, :lastname, :company, :street, :city, :state, :zipcode, :phone, :email, :password)
  end
 	
-	def login
+def login
 
-	end
+end
 
 
-	def register
+def register
 
-	end
+end
 
 
 end

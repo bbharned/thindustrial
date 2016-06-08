@@ -40,25 +40,40 @@ table {
 
 
 body, html {
-	font-family:"Helvetica", san-serif;
+	font-family:"Helvetica", san-serif; 
 	width:100%; height: 100%; position: relative;
+	background-color:#d9d9d9; 
 }
 a:hover {
 	background-color: transparent; color: inherit;
 }
+.appear {
+	display:none;
+}
+.goAway {
+	display:inline;
+}
+
+.content-box {
+	width: 96%; max-width: 1100px; margin: auto;
+}
+/*
 .nav-bar {
-	width:100%; background-color: #003366; color:#FFFFFF;
+	width:100%; color:#FFFFFF;
 	margin-bottom: 35px; padding: 12px 0px; height: 25px; 
 }
 .nav-bar ul {
 	list-style: none; height: 25px; float: right; 
 }
 .nav-bar ul li {
-	float: left; padding: 5px 35px; font-size: 1.05em; line-height: 15px; border-right: 1px solid #FFFFFF;
+	float: left; padding: 5px 35px; font-size: 1.05em; line-height: 15px;
 }
 .nav-bar ul li:last-child {
 	border-right:none;
-}
+}*/
+
+
+
 .nav-bar a {
 	text-decoration: none; color: inherit; text-transform: uppercase;
 }
@@ -66,8 +81,32 @@ a:hover {
 	text-decoration: underline;
 }
 .close {
-	margin-top: -5px;
+	margin-top: -5px; margin-right: 0px;
 }
+.navbar-brand {
+	margin-top:-10px; width:300px; height: 150px; padding: 10px; 
+}
+.navbar-brand img {
+	width:100%; height: 100%;
+}
+.navbar-default {
+	font-size:.75em;
+}
+.navbar-header {
+	padding-top:25px; 
+}
+.navbar-nav {
+	padding-top: 90px; 
+}
+.navbar-nav li:hover {
+	text-decoration:underline;
+}
+.login-button {
+	border-radius:25px; padding:5px 30px; margin-right: 0px !important;
+}
+
+
+
 .hp-main-logo {
 	width:95%; max-width: 600px; margin: auto; margin-top: 10%;
 }
@@ -100,7 +139,33 @@ small {
 }
 
 
-/********* Register Section *****************/
+
+
+
+
+
+
+
+
+@media screen and (max-width:1000px) {
+.navbar-brand {
+	width:200px; height: 100px;  
+}
+.navbar-nav {
+	padding-top: 55px;
+}
+}
+
+@media screen and (max-width:850px) {
+.navbar-brand {
+	width:150px; height: 75px;  
+}
+.navbar-nav {
+	padding-top: 38px;
+}
+}
+
+
 @media screen and (max-width:767px) {
 
 .register-div #city,
@@ -108,6 +173,42 @@ small {
 .register-div #email {
 	margin-bottom:12px;
 } 
-
+.appear {
+	display:inline;
+}
+.goAway {
+	display:none;
+}
+.navbar-header {
+	padding-top:9px; 
+}
+.navbar {
+	background-color: #F1F1F1;
+}
+.navbar-nav {
+	padding-top:0px;
+}
+.navbar-header .navbar-toggle {
+	border-color:#888888 !important;
+}
+.navbar-collapse ul {
+	 /*width:100%; padding-left:1.5%; padding-right:1.5%;*/
+}
+.navbar-default ul li {
+	padding-top:8px; padding-bottom:8px;
+	padding-left:15px; border-bottom:1px solid #c1c1c1; 
+}
+.navbar-default ul li a {
+	color:#3A3E40; 
+}
+.navbar-brand {
+	width: 120px; height: 70px;
+}
+.navbar-default .btn {
+	margin-left:20px; padding-left:35px; padding-right:35px;
+}
+.navbar-default {
+	border-bottom:1px solid #787878;
+}
 }
 

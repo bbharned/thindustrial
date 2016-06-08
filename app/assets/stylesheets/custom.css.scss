@@ -3,69 +3,6 @@ $navbar-default-link-color:#3A3E40;
 $navbar-default-link-hover-color:#003366;
 $navbar-default-link-active-color:#003366;
 $navbar-border-radius:0px !important;
-$navbar-link-color:#FFFFFF;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-
-body {
-	background-color:#d9d9d9;
-}
-.navbar-brand {
-	margin-top:-12px; display:none;
-}
-.navbar-default {
-	font-size:.75em;
-}
-.navbar-header {
-	padding-top:7px; 
-}
-.navbar-nav li:hover {
-	text-decoration:underline;
-}
-.navbar-default #nav-center-it {
-	width:500px; margin:auto; 
-}
-.navbar-default #nav-center-it ul {
-	width:100%;
-}
-.navbar-default #nav-center-it ul li {
-	width:20%; text-align:center;
-}
-
-
-
-@media screen and (max-width:767px) {
-.navbar-default #nav-center-it {
-	 width:inherit; margin:inherit; 
-}
-.navbar-header {
-	background-color:#FFFFFF; 
-}
-.navbar-header .navbar-toggle {
-	border-color:#888888 !important;
-}
-.navbar-collapse ul {
-	 width:100%; padding-left:1.5%; padding-right:1.5%;
-}
-.navbar-default #nav-center-it ul li {
-	width:98.5%; text-align:inherit; padding-left:1.5%; 
-}
-.navbar-default ul li {
-	padding-top:8px; padding-bottom:8px;
-	margin-left:15px; border-bottom:1px solid #c1c1c1; 
-}
-.navbar-default ul li a {
-	color:#3A3E40; 
-}
-.navbar-brand {
-	display:block;
-}
-.navbar-default .btn {
-	margin-left:20px; padding-left:35px; padding-right:35px;
-}
-.navbar-default {
-	border-bottom:1px solid #787878;
-}
-}
