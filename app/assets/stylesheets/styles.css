@@ -110,11 +110,27 @@ a:hover {
 .hp-splash {
 	position: relative; height: 100%; width: 100%; 
 	background-image: url(effectOnTop.png), url(In-the-factory.jpg);
-	background-size: cover; background-position: right;
+	background-size: cover; background-position: right top;
 }
 .hp-span-one {
 	width:100%; min-height: 500px; background-color: #FFFFFF;
 	padding-top: 200px;
+}
+.hp-splash-heading {
+	color:#FFFFFF; text-transform: uppercase; width:65%;
+	font-size:3.2em !important; margin-top:27% !important; margin-left: 3% !important;
+	border-bottom: 1px solid orange; 
+}
+.hp-splash-heading span {
+	font-weight: bold;
+}
+.hp-splash-date-heading {
+	color:#FFFFFF; font-weight: lighter; margin-left: 3%; margin-top: -15px;
+	letter-spacing: .25em;
+}
+.hp-splash-register {
+	margin-left:3%; margin-top: 25px; border-radius: 0px !important;
+	background-color: orange; border: none; padding-left: 25px; padding-right: 25px;
 }
 
 
@@ -172,6 +188,9 @@ small {
 .navbar-nav {
 	padding-top: 55px;
 }
+.hp-splash-heading {
+	width:90%; font-size:2.75em !important;
+}
 }
 
 @media screen and (max-width:850px) {
@@ -226,6 +245,9 @@ small {
 }
 .navbar-default {
 	border-bottom:1px solid #787878;
+}
+.hp-splash-heading {
+	width:94%; font-size:2em !important;
 }
 .page-content {
 	padding-top: 80px;
