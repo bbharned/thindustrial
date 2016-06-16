@@ -1,0 +1,17 @@
+<div class="container page-content">
+<h1 align="center">Thindustrial Users <span style="font-weight: lighter; font-size:.5em;">(<%= User.all.count %> total)</h1>
+<% @users.each do |user| %>
+	<ul class="listing">
+		<div class="row">
+			<div class="well" style="padding:5px 20px; min-height:60px; text-align:center;">
+				<li class="col-md-1">
+					<%= link_to gravatar_for(user, size: 50), user_path(user) %>
+				</li>
+				<li class="col-md-3 listing-name"><%= link_to user.firstname, user_path(user) %> <span class="goAway"></span><%= link_to user.lastname, user_path(user) %></li>
+				<li class="col-md-4 listing-company"><%= user.company %></li>
+				<li class="col-md-4 listing-email"><%= user.email %></li>
+			</div>
+		</div>
+	</ul>
+<% end %>
+</div>
