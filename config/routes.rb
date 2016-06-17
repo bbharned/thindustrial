@@ -7,13 +7,16 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   root 'pages#index'
-  get 'login', to: 'users#login'
   get 'register', to: 'users#new'
   get 'sponsors', to: 'pages#sponsors'
   get 'schedule', to: 'pages#schedule'
   get 'contact', to: 'pages#contact'
 
   resources :users, except: [:new]
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

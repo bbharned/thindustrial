@@ -17,20 +17,40 @@
       <!--<div id="nav-center-it">-->
       
       <ul class="nav navbar-nav navbar-right goAway">
+      <% if logged_in? %>
+        <%= link_to 'LOGOUT', logout_path, type: "button", method: :delete, class: "btn btn-default navbar-btn login-button" %> 
+      <% else %>
         <%= link_to 'LOGIN', login_path, type: "button", class: "btn btn-default navbar-btn login-button" %>
+      <% end %>      
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'HOME', root_path %></li>
-        <li><%= link_to 'REGISTER', register_path %></li>
+        <li>
+        <% if logged_in? %>
+          <%= link_to 'MY PROFILE', user_path(current_user) %>
+        <% else %>
+          <%= link_to 'REGISTER', register_path %>
+        <% end %>
+        </li>
         <li><%= link_to 'SPONSORS & EXHIBITORS', sponsors_path %></li>
-        <li><%= link_to 'SCHEDULE', schedule_path %></li>
+        <li>
+        <% if logged_in? %>
+          <%= link_to 'MY SCHEDULE', user_path(current_user) %>
+        <% else %> 
+          <%= link_to 'SCHEDULE', schedule_path %>
+        <% end %>
+        </li>
         <li><%= link_to 'CONTACT', contact_path %></li>
         
       </ul>
       <!--</div>-->
       <ul class="nav navbar-nav navbar-right appear">
+      <% if logged_in? %>
+        <%= link_to 'LOGOUT', logout_path, type: "button", method: :delete, class: "btn btn-default navbar-btn login-button" %> 
+      <% else %>
         <%= link_to 'LOGIN', login_path, type: "button", class: "btn btn-default navbar-btn login-button" %>
+      <% end %>
       </ul>
       
     </div><!-- /.navbar-collapse -->
