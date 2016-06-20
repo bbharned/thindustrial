@@ -15,7 +15,7 @@
   		<%= @course.timeblock %>
 	</small>
 </div>  
-
+<% if logged_in? && current_user.admin %>
 <div class="article-action-links">
 	<div class="container">
 		<div class="col-xs-12">
@@ -24,5 +24,6 @@
 		</div>
 	</div>
 </div>
+<% end %>
 
 </div>

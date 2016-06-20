@@ -2,9 +2,11 @@
 
 <div class="row">
 <h1 class="col-xs-8">Thindustrial Courses</h1>
+<% if logged_in? && current_user.admin %>
 <div class="col-xs-4" align="right" style="margin-top:25px;"><%= link_to 'Add New Course', new_course_path, class: "btn btn-default" %></div>
 </div>
 <hr />
+<% end %>
 
 
 <% @courses.each do | course | %>
@@ -22,12 +24,14 @@
             </small>
           </div>
         </div>
+        <% if logged_in? && current_user.admin %>
         <div class="course-listing-actions" align="right">
           <%= link_to 'Edit', edit_course_path(course), class: "btn btn-default" %> 
           <%= link_to 'Delete This Course', course_path(course), method: :delete, 
                       data: {confirm: "Are you sure you want to delete the article?"}, 
                       class: "btn  btn-danger", style: "color:#FFFFFF;" %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>

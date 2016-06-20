@@ -16,25 +16,39 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    if !current_user.admin
+      flash[:danger] = "Only admins can add courses"
+      redirect_to courses_path
+    else
+      @course = Course.new
+    end
   end
 
   # GET /courses/1/edit
   def edit
+    if !current_user.admin
+      flash[:danger] = "Only admins can edit courses"
+      redirect_to courses_path
+    end
   end
 
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
+    if !current_user.admin
+      flash[:danger] = "Only admins can add courses"
+      redirect_to courses_path
+    else
+      @course = Course.new(course_params)
 
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.', style: 'color:green;' }
-        format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @course.save
+          format.html { redirect_to @course, notice: 'Course was successfully created.', style: 'color:green;' }
+          format.json { render :show, status: :created, location: @course }
+        else
+          format.html { render :new }
+          format.json { render json: @course.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -56,10 +70,15 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully deleted.' }
-      format.json { head :no_content }
+    if !current_user.admin
+      flash[:danger] = "Only admins can add courses"
+      redirect_to courses_path
+    else
+      @course.destroy
+      respond_to do |format|
+        format.html { redirect_to courses_url, notice: 'Course was successfully deleted.' }
+        format.json { head :no_content }
+      end
     end
   end
 
