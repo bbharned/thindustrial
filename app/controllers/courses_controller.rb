@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  #before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /courses
   # GET /courses.json
@@ -71,4 +73,12 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :description, :timeblock)
     end
+
+    def require_same_user
+      #if current_user != @course.user 
+        #flash[:danger] = "you can only view your own profile"
+        #redirect_to root_path
+      #end
+    end
+
 end
