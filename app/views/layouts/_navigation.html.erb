@@ -26,17 +26,28 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'HOME', root_path %></li>
+        <% if logged_in? && !current_user.admin? %>
         <li>
-        <% if logged_in? %>
           <%= link_to 'MY PROFILE', user_path(current_user) %>
-        <% else %>
-          <%= link_to 'REGISTER', register_path %>
-        <% end %>
         </li>
+        <% elsif  logged_in? && current_user.admin? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ADMIN <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'View Attendees', users_path %></li>
+            <!--<li role="separator" class="divider"></li>-->
+            <li><%= link_to 'Edit Courses', courses_path %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to 'REGISTER', register_path %>
+        </li>
+        <% end %>
         <li><%= link_to 'SPONSORS & EXHIBITORS', sponsors_path %></li>
         <li>
         <% if logged_in? %>
-          <%= link_to 'MY SCHEDULE', user_path(current_user) %>
+          <%= link_to 'COURSES', courses_path %>
         <% else %> 
           <%= link_to 'SCHEDULE', schedule_path %>
         <% end %>

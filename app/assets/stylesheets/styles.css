@@ -44,6 +44,9 @@ table {
 ul.navbar-right a {
 	color:#3A3E40 !important;
 }
+ul.navbar-right .dropdown ul {
+	left: 0px;
+}
 
 
 body, html {
@@ -275,6 +278,12 @@ ul.navbar-right a.login-button {
 }
 .navbar-brand {
 	width: 120px; height: 70px;
+}
+ul.navbar-right .dropdown ul li {
+	padding-left:35px;
+}
+ul.navbar-right .dropdown ul li:last-child {
+	border-bottom:none;
 }
 ul.navbar-right a {
 	padding-left: 35px; 
