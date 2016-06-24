@@ -105,7 +105,9 @@ ul.navbar-right a {
 .login-button {
 	border-radius:25px; padding-top:4px; padding-bottom: 4px; margin-right: 0px !important; margin-top: 12px;
 }
-
+.form-group #state select {
+	margin-top: 4px;
+}
 
 /************* Homepage ****************/
 /*
