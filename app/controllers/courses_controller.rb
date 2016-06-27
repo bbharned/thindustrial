@@ -58,7 +58,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course, notice: 'Course was successfully updated.'}
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }

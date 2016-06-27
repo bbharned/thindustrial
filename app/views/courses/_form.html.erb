@@ -21,8 +21,27 @@
           <div class="col-sm-8">
             <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Full Course Description" %>
           </div>
-        </div>  
-        
+        </div> 
+
+        <div class="form-group">
+          <div class="control-label col-sm-2">
+            <%= f.label :timeblock %>
+          </div>
+        <div class="col-sm-1" id="timeblock">
+            <%= f.select :timeblock, options_for_select([
+              ["", ], 
+              ["Monday - 8am to 10am", 1], 
+              ["Monday - 10am to 12pm", 2], 
+              ["Monday - 12pm to 2pm", 3], 
+              ["Monday - 2pm to 4pm", 4], 
+              ["Tuesday - 8am to 10am", 5],
+              ["Tuesday - 10am to 12pm", 6],
+              ["Tuesday - 12pm to 2pm", 7],
+              ["Tuesday - 2pm to 4pm", 8]
+              ], @course.timeblock ), class: "form-control" %>
+          </div> 
+        </div>
+
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <%= f.submit class: "btn btn-primary btn-lg" %>

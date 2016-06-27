@@ -9,10 +9,10 @@
 <% end %>
 
 
-<% @courses.each do | course | %>
+<% @courses.order(:timeblock).each do | course | %>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <div class="well well-lg">
+      <div class="well well-sm">
         <div class="course-listing-title">
           <%= link_to course.title, course_path(course) %>
         </div>
@@ -20,7 +20,20 @@
           <%= truncate(course.description, length: 100) %>
           <div class="article-meta-details">
             <small>
-              Timeblock: <%= course.timeblock %>
+            <div style="font-weight:bold;">
+              <span style="font-weight:normal;">Time:</span> 
+              <% if course.timeblock == 1 %>
+                <%= "Monday - 8am to 10am" %>
+              <% elsif course.timeblock == 2 %>
+                <%= "Monday - 10am to 12pm" %>
+              <% elsif course.timeblock == 3 %>
+                <%= "Monday - 12pm to 2pm" %>
+              <% elsif course.timeblock == 4 %>
+                <%= "Monday - 2pm to 4pm" %>
+              <% else %>
+                <%= course.timeblock %>
+              <% end %>  
+            </div>
             </small>
           </div>
         </div>

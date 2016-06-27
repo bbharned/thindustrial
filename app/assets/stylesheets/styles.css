@@ -106,7 +106,10 @@ ul.navbar-right a {
 	border-radius:25px; padding-top:4px; padding-bottom: 4px; margin-right: 0px !important; margin-top: 12px;
 }
 .form-group #state select {
-	margin-top: 4px;
+
+}
+.edit-link {
+	font-size:.5em;
 }
 
 /************* Homepage ****************/
@@ -177,6 +180,9 @@ ul.navbar-right a {
 }
 .course-listing-actions {
 
+}
+.courses-content .well {
+	margin-bottom: 7px;
 }
 small {
 	font-size:.75em; color: #666666; 
