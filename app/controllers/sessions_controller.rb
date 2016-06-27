@@ -13,7 +13,7 @@ def create
 		flash[:success] = "You have successfully logged in"
 		redirect_to user_path(user)
 	else
-		flash.now[:danger] = "Log in information was incorrect or there was a problem"
+		flash.now[:danger] = "Log in information was incorrect"
 		render 'new'
 	end
 end
