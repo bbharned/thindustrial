@@ -150,7 +150,11 @@
       <% end %>
     <br />  
     <div class="col-xs-12" style="text-align:center;">
+      <% if logged_in? %>
      [ <%= link_to "Cancel and Return to User Profile", user_path(@user) %> ]
+     <% else %>
+     [ <%= link_to "Cancel and Return to Home", root_path %> ]
+     <% end %>
     </div>
   </div>
 </div>
