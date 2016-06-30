@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :schedules 
+	has_many :courses, through: :schedules 
 	before_save { self.email = email.downcase }
 	validates :firstname, presence: true, length: { minimum: 3, maximum: 20 }
 	validates :lastname, presence: true, length: { minimum: 3, maximum: 20 }

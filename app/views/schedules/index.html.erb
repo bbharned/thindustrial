@@ -1,0 +1,24 @@
+<div class="container page-content">
+<h1 align="center">Thindustrial User Schedules</h1>
+
+<% @schedule.each do |schedule| %>
+	<ul class="listing">
+		<div class="well" style="padding:5px 20px; min-height:60px; text-align:center;">	
+			<div class="row">
+				<li class="col-md-10 listing-name" style="text-align:left;">
+					<%= schedule.course.title %>
+				</li>
+				<li class="col-md-2 listing-company">
+					<%= schedule.timeblock %>
+				</li>
+			</div>
+			<div class="row">
+				<% %>
+				<li class="col-md-3 listing-email"><%= schedule.user.firstname %> <%= schedule.user.lastname %></li>
+			</div>
+		</div>
+	</ul>
+<% end %>
+
+
+</div>
