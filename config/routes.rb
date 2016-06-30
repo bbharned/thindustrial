@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'register', to: 'users#new'
   get 'sponsors', to: 'pages#sponsors'
-  get 'schedule', to: 'pages#schedule'
+  get 'agenda', to: 'pages#agenda'
   get 'contact', to: 'pages#contact'
 
   resources :users, except: [:new]

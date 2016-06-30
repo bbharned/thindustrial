@@ -6,7 +6,8 @@ class SchedulesController < ApplicationController
 	      flash[:danger] = "Only admins can view others schedules"
 	      redirect_to user_path(current_user)
 	    else
-	      @schedule = Schedule.all
+	      @courses = Course.all
+	      @schedules = Schedule.all
 	    end
 	end
 

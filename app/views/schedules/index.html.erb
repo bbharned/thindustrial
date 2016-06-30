@@ -1,20 +1,39 @@
 <div class="container page-content">
-<h1 align="center">Thindustrial User Schedules</h1>
+<h1 align="center">Class Registered Attendees</h1>
 
-<% @schedule.each do |schedule| %>
-	<ul class="listing">
-		<div class="well" style="padding:5px 20px; min-height:60px; text-align:center;">	
+<% @courses.each do | course | %>
+	<ul class="schedule-listing">
+		<div class="well" style="padding:5px 20px 10px; min-height:60px;">	
 			<div class="row">
-				<li class="col-md-10 listing-name" style="text-align:left;">
-					<%= schedule.course.title %>
+				<li class="col-md-8 listing-name" style="text-align:left;">
+					<%= link_to course.title, course_path(course) %>
 				</li>
-				<li class="col-md-2 listing-company">
-					<%= schedule.timeblock %>
+				<li class="col-md-4 listing-company">
+					Time: 
+					<% if course.timeblock == 1 %>
+						<span class="bold">8:00 am to 10:00 am</span>
+					<% elsif course.timeblock == 2 %>
+						<span class="bold">10:00 am to 12:00 pm</span>
+					<% elsif course.timeblock == 3 %>
+						<span class="bold">12:00 pm to 2:00 pm</span>
+					<% else %>
+						<%= course.timeblock %>
+					<% end %>		
 				</li>
 			</div>
-			<div class="row">
-				<% %>
-				<li class="col-md-3 listing-email"><%= schedule.user.firstname %> <%= schedule.user.lastname %></li>
+			<div class="row list-of-class-attendees">
+				<h5>Registered Users</h5>
+				<ul>
+				<% @schedules.each do | schedule | %>
+					<% if schedule.course_id == course.id %>
+						<div class="row">
+						<li class="col-md-4">
+							<%= link_to "#{schedule.user.firstname} #{schedule.user.lastname}", user_path(schedule.user) %> 
+						</li>
+						</div>
+					<% end %>
+				<% end %>
+				</ul>
 			</div>
 		</div>
 	</ul>

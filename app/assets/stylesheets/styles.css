@@ -66,6 +66,9 @@ a:hover {
 .goAway {
 	display:inline;
 }
+.bold {
+	font-weight:bold;
+}
 .app-messages {
 	margin-top: 180px; margin-bottom: -180px; 
 }
@@ -201,6 +204,18 @@ small {
 }
 .listing-name, .listing-company, .listing-email {
 	padding-top:15px;
+}
+.schedule-listing .listing-name {
+	font-weight:bold; font-size: 1.25em;
+}
+.list-of-class-attendees {
+	padding-left: 15px;
+}
+.list-of-class-attendees h5 {
+	font-size:.65em; font-style: italic; margin-top: 8px; margin-bottom: 7px;
+}
+.list-of-class-attendees ul li {
+	margin-left: 2%; margin-bottom: 5px;
 }
 
 
