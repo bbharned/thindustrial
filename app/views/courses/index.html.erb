@@ -37,13 +37,16 @@
             </small>
           </div>
         </div>
-        <% if logged_in? && current_user.admin %>
-        <div class="course-listing-actions" align="right">
-          <%= link_to 'Edit', edit_course_path(course), class: "btn btn-default" %> 
-          <%= link_to 'Delete This Course', course_path(course), method: :delete, 
-                      data: {confirm: "Are you sure you want to delete the article?"}, 
-                      class: "btn  btn-danger", style: "color:#FFFFFF;" %>
-        </div>
+        <% if logged_in? %>
+          <div class="course-listing-actions" align="right">
+              <%= link_to 'Select Course', schedules_path(:user_id => current_user.id, :course_id => course.id, :timeblock => course.timeblock),  method: :create, data: {confirm: "Are you sure you want to add this session to your schedule?"}, class: "btn btn-primary" %> <!-- Change path to add new entry to schedules db table--> 
+            <% if current_user.admin? %>
+              <%= link_to 'Edit', edit_course_path(course), class: "btn btn-default" %> 
+              <%= link_to 'Delete This Course', course_path(course), method: :delete, 
+                        data: {confirm: "Are you sure you want to delete the article?"}, 
+                        class: "btn  btn-danger", style: "color:#FFFFFF;" %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
