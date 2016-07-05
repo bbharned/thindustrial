@@ -23,7 +23,11 @@ ul.navbar-right a {
 	<div class="container">
 		<h1 class="hp-splash-heading">the<br /><span>industrial mobility</span><br />conference</h1>
 		<p class="hp-splash-date-heading">SOMECITY. MONTH 8-12, 2017</p>
+		<% if !logged_in? %>
 		<%=link_to 'REGISTER', register_path, type: "button", class: "btn btn-default hp-splash-register" %>
+		<% else %>
+		<%=link_to 'MY ACCOUNT', user_path(current_user), type: "button", class: "btn btn-default hp-splash-register" %>
+		<% end %>
 	</div>
 </div>
 <div class="hp-span-one">
