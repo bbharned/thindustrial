@@ -57,6 +57,16 @@ body, html {
 .page-content {
 	padding-top: 180px; padding-bottom: 100px;
 }
+.page-content h1 {
+
+}
+.page-content h2 {
+	font-size:1.65em; margin-top: 50px; margin-bottom: 65px; 
+	font-weight:lighter; letter-spacing: -.03em; text-transform: uppercase;
+}
+.page-content p {
+	margin-bottom: 25px; line-height: 20px;
+}
 a:hover {
 	background-color: transparent; color: inherit;
 }

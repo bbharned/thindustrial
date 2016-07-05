@@ -3,12 +3,14 @@ class SchedulesController < ApplicationController
 	#@courses = Course.all
 
 	def index
-		if !current_user.admin
+		if logged_in? && !current_user.admin?
 	      flash[:danger] = "Only admins can view others schedules"
 	      redirect_to user_path(current_user)
-	    else
+	    elsif logged_in? && current_user.admin?
 	      @courses = Course.all
 	      @schedules = Schedule.all
+	  	else
+	  		redirect_to root_path
 	    end
 	end
 
