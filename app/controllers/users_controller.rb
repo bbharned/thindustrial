@@ -46,7 +46,8 @@ end
 
 
 def show
-  #@user = User.find(params[:id])
+  #@schedules = Schedule.find(params[:id])
+  #@schedules = Schedule.all
 end
 
 def destroy

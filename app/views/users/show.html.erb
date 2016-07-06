@@ -7,8 +7,8 @@
 		<p class="tiny" align="center">powered by <a href="http://gravatar.com" target="_blank">Gravatar</a></p>
 	</div>
 	<h2><%= @user.firstname %> <%= @user.lastname %> 
-	<% if @user.id == current_user.id || @user.admin %>
-	&nbsp; <%= link_to "edit profile", edit_user_path(@user), class: "edit-link" %></h2>
+	<% if @user.id == current_user.id or current_user.admin == true %>
+	&nbsp; <%= link_to "edit", edit_user_path(@user), class: "edit-link" %></h2>
 	<% end %>
 	<h4 align="center"><%= @user.company %></h4>
 	<p align="center"><%= @user.street %></p>
@@ -17,5 +17,15 @@
 <br /><br />
 <hr />
 
-	<h2 align="center">Current Schedule</h2>
+	<h2 align="center">Current Schedule</h2><br />
+	<% Schedule.where(user_id: @user.id).each do |schedule| %>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-2">
+					<p align="center"><%= schedule.course.title %></p>
+				</div>
+				<div class="col-md-3 col-md-offset-1">
+					<p align="center"><%= schedule.timeblock %></p>
+				</div>
+			</div>
+	<% end %>
 </div>
