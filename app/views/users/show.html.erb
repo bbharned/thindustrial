@@ -18,13 +18,23 @@
 <hr />
 
 	<h2 align="center">Current Schedule</h2><br />
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1" style="font-weight:bold;">Session Title:</div>
+		<div class="col-md-3 col-md-offset-1" style="font-weight:bold;">Time:</div>
+	</div><br />
 	<% Schedule.where(user_id: @user.id).each do |schedule| %>
 			<div class="row">
-				<div class="col-md-4 col-md-offset-2">
-					<p align="center"><%= schedule.course.title %></p>
+				<div class="col-md-4 col-md-offset-1">
+					<p><%= schedule.course.title %></p>
 				</div>
 				<div class="col-md-3 col-md-offset-1">
-					<p align="center"><%= schedule.timeblock %></p>
+					<p><%= schedule.timeblock %></p>
+				</div>
+				<div class="col-md-3">
+					<% if @user.id == current_user.id or current_user.admin == true %>
+						<%= link_to 'Remove Session', schedule_path(schedule), method: :delete, 
+                        data: {confirm: "Are you sure you want to remove this session from your schedule?"} %>
+					<% end %>	
 				</div>
 			</div>
 	<% end %>

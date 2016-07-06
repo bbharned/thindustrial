@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
 	#before_action :require_user, only: [:index, :create, :edit, :update, :show]
+	before_action :set_schedule, only: [:show, :destroy]
 
 	def index
 		if logged_in? && !current_user.admin?
@@ -35,20 +36,21 @@ class SchedulesController < ApplicationController
 	end
 
 	def destroy
-		if !current_user? || !current_user.admin?
+		if !current_user and !current_user.admin
 	      flash[:danger] = "You can only change your own shcedule"
-	      redirect_to courses_path
+	      redirect_to user_path(current_user)
 	    else
 	      @schedule.destroy
-	      respond_to do |format|
-	        format.html { redirect_to courses_url, notice: 'Class was successfully removed from your schedule.' }
-	        format.json { head :no_content }
-	      end
+	      flash[:success] = "Class was successfully removed from your schedule."
+			redirect_to user_path(current_user)
     	end
 	end
 
 	private
-		
+	
+	def set_schedule
+      @schedule = Schedule.find(params[:id])
+    end	
 		# Never trust parameters from the scary internet, only allow the white list through.
 	    
 end
