@@ -6,10 +6,13 @@
 		</div>
 		<p class="tiny" align="center">powered by <a href="http://gravatar.com" target="_blank">Gravatar</a></p>
 	</div>
-	<h2><%= @user.firstname %> <%= @user.lastname %> &nbsp; <%= link_to "edit profile", edit_user_path(@user), class: "edit-link" %></h2>
+	<h2><%= @user.firstname %> <%= @user.lastname %> 
+	<% if @user.id == current_user.id || @user.admin %>
+	&nbsp; <%= link_to "edit profile", edit_user_path(@user), class: "edit-link" %></h2>
+	<% end %>
 	<h4 align="center"><%= @user.company %></h4>
 	<p align="center"><%= @user.street %></p>
-	<p align="center" style="margin-bottom:7px;"><%= @user.city %>, <%= @user.state %> <%= @user.zipcode %></p>
+	<p align="center" style="margin-bottom:10px !important;"><%= @user.city %>, <%= @user.state %> <%= @user.zipcode %></p>
 	<p align="center">Email: <%= @user.email %></p>
 <br /><br />
 <hr />

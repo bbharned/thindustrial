@@ -1,6 +1,5 @@
 class SchedulesController < ApplicationController
 	#before_action :require_user, only: [:index, :create, :edit, :update, :show]
-	#@courses = Course.all
 
 	def index
 		if logged_in? && !current_user.admin?
@@ -33,6 +32,19 @@ class SchedulesController < ApplicationController
 
 	def show
 		
+	end
+
+	def destroy
+		if !current_user? || !current_user.admin?
+	      flash[:danger] = "You can only change your own shcedule"
+	      redirect_to courses_path
+	    else
+	      @schedule.destroy
+	      respond_to do |format|
+	        format.html { redirect_to courses_url, notice: 'Class was successfully removed from your schedule.' }
+	        format.json { head :no_content }
+	      end
+    	end
 	end
 
 	private

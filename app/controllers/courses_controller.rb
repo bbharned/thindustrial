@@ -71,7 +71,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     if !current_user.admin
-      flash[:danger] = "Only admins can add courses"
+      flash[:danger] = "Only admins can delete courses"
       redirect_to courses_path
     else
       @course.destroy

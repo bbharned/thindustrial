@@ -64,6 +64,12 @@ body, html {
 	font-size:1.65em; margin-top: 50px; margin-bottom: 65px; 
 	font-weight:lighter; letter-spacing: -.03em; text-transform: uppercase;
 }
+.profile-content h2 {
+	margin-top: 10px !important;
+}
+.profile-content p {
+	margin-bottom: 0px !important;
+}
 .page-content p {
 	margin-bottom: 25px; line-height: 20px;
 }
