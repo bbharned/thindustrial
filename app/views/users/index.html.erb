@@ -8,7 +8,7 @@
 				<li class="col-md-1">
 					<%= link_to gravatar_for(user, size: 50), user_path(user) %>
 				</li>
-				<li class="col-md-3 listing-name"><%= link_to user.firstname, user_path(user) %> <span class="goAway"></span><%= link_to user.lastname, user_path(user) %></li>
+				<li class="col-md-3 listing-name"><%= link_to "#{user.firstname} #{user.lastname}", user_path(user) %></li>
 				<li class="col-md-3 listing-company"><%= user.company %></li>
 				<li class="col-md-3 listing-email"><%= user.email %></li>
 				<% if logged_in? && current_user.admin? %>

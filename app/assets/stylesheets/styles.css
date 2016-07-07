@@ -183,7 +183,7 @@ ul.navbar-right a {
 	font-size:2em; margin-bottom: 25px; margin-top: 25px;
 }
 .course-title {
-	margin-bottom: 25px; margin-top: 35px; font-size: 1.7em; font-weight: bold;
+	margin-bottom: 25px !important; margin-top: 35px; font-size: 1.7em; font-weight: bold !important;
 }
 .course-listing-title {
 	font-weight:bold; font-size: 1.45em; margin-bottom: 8px;
