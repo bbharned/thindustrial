@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
 	#before_action :require_user, only: [:index, :create, :edit, :update, :show]
 	before_action :set_schedule, only: [:show, :destroy]
+	#before_action :require_unique_time, only: [:create]
 
 	def index
 		if logged_in? && !current_user.admin?
@@ -19,17 +20,29 @@ class SchedulesController < ApplicationController
 	end
 
 	def create	
+	  @schedules = Schedule.all
 	  @course = Course.find(params[:course_id])
-	  @schedule = Schedule.new(user_id: current_user.id, course_id: @course.id, timeblock: @course.timeblock)
+	  @schedule = Schedule.new(user_id: current_user.id, course_id: @course.id, timeblock: @course.timeblock) 
 
-        if @schedule.save
-          flash[:success] = "The selected course has been added to your schedule"
-  		  redirect_to user_path(current_user)
-        else
-          flash[:danger] = "There was a problem adding this class"
-  		  redirect_to user_path(current_user)
-        end
+	  if @schedules.any?{ |session| session.timeblock == @schedule.timeblock and session.user_id == @schedule.user_id }
+
+	  	flash[:danger] = "You already have a session at that time."
+		redirect_to user_path(current_user)
+
+	  else
+
+		  if @schedule.save 
+		      flash[:success] = "The selected course has been added to your schedule"
+			  redirect_to user_path(current_user)
+		  else
+		      flash[:danger] = "There was a problem adding this class"
+			  redirect_to user_path(current_user)
+		  end
+
+	  end
 	end
+
+
 
 	def show
 		
@@ -51,6 +64,8 @@ class SchedulesController < ApplicationController
 	def set_schedule
       @schedule = Schedule.find(params[:id])
     end	
+
+    
 		# Never trust parameters from the scary internet, only allow the white list through.
 	    
 end
