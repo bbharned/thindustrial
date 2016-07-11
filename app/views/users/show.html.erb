@@ -31,7 +31,7 @@
 			
 			<div class="user-schedule-class">
 				<div class="user-schedule-class-title">
-					<p><%= schedule.course.title %></p>
+					<p><%= link_to "#{schedule.course.title}", course_path(schedule.course.id), style: "color:inherit;" %></p>
 				</div>
 				<div class="user-schedule-class-time">
 					<p>Time: <%= schedule.timeblock %></p>

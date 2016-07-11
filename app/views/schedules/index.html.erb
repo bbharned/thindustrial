@@ -27,8 +27,13 @@
 				<% @schedules.each do | schedule | %>
 					<% if schedule.course_id == course.id %>
 						<div class="row">
-						<li class="col-md-4">
+						<li class="col-md-10">
+							<div class="col-md-3">
 							<%= link_to "#{schedule.user.firstname} #{schedule.user.lastname}", user_path(schedule.user) %> 
+							</div>
+							<div class="col-md-7">
+								<%= schedule.user.company %>
+							</div>
 						</li>
 						</div>
 					<% end %>
