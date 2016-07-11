@@ -22,7 +22,7 @@
 		<div class="col-md-4 col-md-offset-1" style="font-weight:bold;">Session Title:</div>
 		<div class="col-md-3 col-md-offset-1" style="font-weight:bold;">Time:</div>
 	</div><br />
-	<% Schedule.where(user_id: @user.id).each do |schedule| %>
+	<% Schedule.where(user_id: @user.id).order(:timeblock).each do |schedule| %>
 			<div class="row">
 				<div class="col-md-4 col-md-offset-1">
 					<p><%= schedule.course.title %></p>

@@ -36,4 +36,21 @@
   </div>
 <% end %>
 
+<% if logged_in? and current_user.admin? %>
+<br /><br />
+<hr />
+<br /><br />
+<h3 align="center" style="font-weight:bold; font-size:1.25em;">Registered Attendees</h3>
+<br /><br />
+<% Schedule.where(course_id: @course.id).each do |schedule| %>
+      <div class="row">
+        <div class="col-md-6" align="right">
+          <p><%= link_to "#{schedule.user.firstname} #{schedule.user.lastname}", user_path(schedule.user_id) %></p>
+        </div>
+        <div class="col-md-6">
+          <p><%= schedule.user.company %></p>
+        </div>
+      </div>
+  <% end %>
+<% end %>
 </div>
