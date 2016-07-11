@@ -1,4 +1,6 @@
 <div class="container profile-content page-content">
+	
+<div class="userpage-profile-block">
 	<h1 align="center">Attendee Profile</h1>
 	<div class="row">
 		<div class="grav-image">
@@ -14,28 +16,36 @@
 	<p align="center"><%= @user.street %></p>
 	<p align="center" style="margin-bottom:10px !important;"><%= @user.city %>, <%= @user.state %> <%= @user.zipcode %></p>
 	<p align="center">Email: <%= @user.email %></p>
-<br /><br />
-<hr />
+	<br /><br />
+</div>
 
-	<h2 align="center">Current Schedule</h2><br />
-	<div class="row">
-		<div class="col-md-4 col-md-offset-1" style="font-weight:bold;">Session Title:</div>
-		<div class="col-md-3 col-md-offset-1" style="font-weight:bold;">Time:</div>
-	</div><br />
+
+
+<div class="userpage-schedule-block">
+	<h2 align="center">Current Schedule</h2>
+	<% if @user == current_user %>
+	<p align="center" class="add-link"><%= link_to "add sessions", courses_path %></p>
+	<%end %>
+	<br />
 	<% Schedule.where(user_id: @user.id).order(:timeblock).each do |schedule| %>
-			<div class="row">
-				<div class="col-md-4 col-md-offset-1">
+			
+			<div class="user-schedule-class">
+				<div class="user-schedule-class-title">
 					<p><%= schedule.course.title %></p>
 				</div>
-				<div class="col-md-3 col-md-offset-1">
-					<p><%= schedule.timeblock %></p>
+				<div class="user-schedule-class-time">
+					<p>Time: <%= schedule.timeblock %></p>
 				</div>
-				<div class="col-md-3">
+				<div class="user-schedule-class-remove">
 					<% if @user.id == current_user.id or current_user.admin == true %>
 						<%= link_to 'Remove Session', schedule_path(schedule), method: :delete, 
                         data: {confirm: "Are you sure you want to remove this session from your schedule?"} %>
 					<% end %>	
 				</div>
 			</div>
+		
 	<% end %>
+</div>
+
+
 </div>
