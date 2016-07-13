@@ -203,6 +203,12 @@ ul.navbar-right a {
 .courses-content .well {
 	margin-bottom: 7px;
 }
+.category-content .well {
+	text-align:center; padding: 0px 0px; margin-bottom: 5px;
+}
+.category-content .course-title {
+	margin-top: 10px; margin-bottom: 10px !important; padding-bottom: 0px;
+}
 small {
 	font-size:.75em; color: #666666; 
 }

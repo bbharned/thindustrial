@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     if !current_user.admin
-      flash[:danger] = "Only admins can add courses"
+      flash[:danger] = "Only admins can add Sessions"
       redirect_to courses_path
     else
       @course = Course.new
@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     if !current_user.admin
-      flash[:danger] = "Only admins can edit courses"
+      flash[:danger] = "Only admins can edit Sessions"
       redirect_to courses_path
     end
   end
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
 
       respond_to do |format|
         if @course.save
-          format.html { redirect_to @course, notice: 'Course was successfully created.', style: 'color:green;' }
+          format.html { redirect_to @course, notice: 'Session was successfully created.', style: 'color:green;' }
           format.json { render :show, status: :created, location: @course }
         else
           format.html { render :new }
@@ -58,7 +58,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.', style: 'color:green;'}
+        format.html { redirect_to @course, notice: 'Session was successfully updated.', style: 'color:green;'}
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -71,12 +71,12 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     if !current_user.admin
-      flash[:danger] = "Only admins can delete courses"
+      flash[:danger] = "Only admins can delete Sessions"
       redirect_to courses_path
     else
       @course.destroy
       respond_to do |format|
-        format.html { redirect_to courses_url, notice: 'Course was successfully deleted.' }
+        format.html { redirect_to courses_url, notice: 'Session was successfully deleted.' }
         format.json { head :no_content }
       end
     end

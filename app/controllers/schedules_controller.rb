@@ -5,7 +5,7 @@ class SchedulesController < ApplicationController
 
 	def index
 		if logged_in? && !current_user.admin?
-	      flash[:danger] = "Only admins can view others schedules"
+	      flash[:danger] = "Only admins can view all schedules"
 	      redirect_to user_path(current_user)
 	    elsif logged_in? && current_user.admin?
 	      @courses = Course.all
@@ -32,10 +32,10 @@ class SchedulesController < ApplicationController
 	  else
 
 		  if @schedule.save 
-		      flash[:success] = "The selected course has been added to your schedule"
+		      flash[:success] = "The selected session has been added to your schedule"
 			  redirect_to user_path(current_user)
 		  else
-		      flash[:danger] = "There was a problem adding this class"
+		      flash[:danger] = "There was a problem adding this session"
 			  redirect_to user_path(current_user)
 		  end
 
@@ -50,11 +50,11 @@ class SchedulesController < ApplicationController
 
 	def destroy
 		if !current_user and !current_user.admin
-	      flash[:danger] = "You can only change your own shcedule"
+	      flash[:danger] = "You can only change your own schedule"
 	      redirect_to user_path(current_user)
 	    else
 	      @schedule.destroy
-	      flash[:success] = "Class was successfully removed from your schedule."
+	      flash[:success] = "Session was successfully removed from your schedule."
 			redirect_to user_path(current_user)
     	end
 	end
