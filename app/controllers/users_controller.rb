@@ -6,7 +6,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
 before_action :require_admin, only: [:destroy]
 
 def index 
-  @users = User.paginate(page: params[:page], per_page: 12)
+  @users = User.paginate(page: params[:page], per_page: 10)
 end
 
 def new

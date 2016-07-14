@@ -6,31 +6,33 @@
 
 <div class="well col-xs-8 col-xs-offset-2">
   <h4 class="description-header">Description:</h4>
-  <hr />
-  <%= simple_format (@course.description) %>
-  <br />
+  <div class="course-show-description"><%= simple_format (@course.description) %></div>
   <% if logged_in? %>
     <div class="course-listing-actions" align="right">
-        <%= link_to 'Select Course', schedules_path(:user_id => current_user.id, :course_id => @course.id, :timeblock => @course.timeblock),  method: :create, data: {confirm: "Are you sure you want to add this session to your schedule?"}, class: "btn btn-primary" %> <!-- Change path to add new entry to schedules db table--> 
+        <%= link_to 'Add to Schedule', schedules_path(:user_id => current_user.id, :course_id => @course.id, :timeblock => @course.timeblock),  method: :create, data: {confirm: "Are you sure you want to add this session to your schedule?"}, class: "btn btn-primary btn-sm" %> <!-- Change path to add new entry to schedules db table--> 
       <% if current_user.admin? %>
-        <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-default" %> 
-        <%= link_to 'Delete This Course', course_path(@course), method: :delete, 
+        <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-default btn-sm" %> 
+        <%= link_to 'Delete', course_path(@course), method: :delete, 
                   data: {confirm: "Are you sure you want to delete the article?"}, 
-                  class: "btn  btn-danger", style: "color:#FFFFFF;" %>
+                  class: "btn  btn-danger btn-sm", style: "color:#FFFFFF;" %>
       <% end %>
     </div>
   <% end %>
-  <hr />
+  <hr style="margin-bottom:5px;" />
+  <div class="category-tags">
+    <% if @course.categories.any? %>
+      <p><%= render @course.categories %></p>
+    <% end %>
+  </div>
   	<small>
-  		Timeblock:
-  		<%= @course.timeblock %>
+  		Time: <%= @course.timeblock %>
 	</small>
 </div>  
 <% if logged_in? %>
   <div class="article-action-links">
     <div class="container">
       <div class="col-xs-12">
-        <%= link_to 'Back To All Courses', courses_path %>
+        <%= link_to 'Back to all Sessions', courses_path %>
       </div>
     </div>
   </div>

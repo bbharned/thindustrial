@@ -203,6 +203,12 @@ ul.navbar-right a {
 .article-meta-details {
 	margin-top: 15px; margin-bottom: 10px;
 }
+.description-header {
+	margin-bottom:5px;
+}
+.course-show-description {
+	margin-bottom:5px;
+}
 .course-listing-actions {
 
 }
@@ -216,7 +222,7 @@ ul.navbar-right a {
 	margin-top: 10px; margin-bottom: 10px !important; padding-bottom: 0px;
 }
 small {
-	font-size:.75em; color: #666666; 
+	font-size:.85em; color: #666666; 
 }
 .profile-content:after {
 	content: ".";
