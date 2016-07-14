@@ -45,7 +45,7 @@ ul.navbar-right a {
 	color:#3A3E40 !important;
 }
 ul.navbar-right .dropdown ul {
-	left: 0px; min-width: 200px;
+	left: 0px; min-width: 230px;
 }
 
 
@@ -201,16 +201,25 @@ ul.navbar-right a {
 	font-weight:bold;
 }
 .article-meta-details {
-	margin-top: 15px; margin-bottom: 10px;
+	margin-top: 10px; margin-bottom: 0px;
 }
 .description-header {
 	margin-bottom:5px;
 }
 .course-show-description {
-	margin-bottom:5px;
+	margin-bottom:0px !important;
 }
 .course-listing-actions {
-
+	margin-top: -15px !important;
+}
+.course-show-attendee-name {
+	text-align:right;
+}
+.category-tags p {
+	margin-bottom: 12px !important;
+}
+.input_checkbox input {
+	width: auto !important;
 }
 .courses-content .well {
 	margin-bottom: 7px;
@@ -302,6 +311,12 @@ small {
 .listing-name, .listing-company, .listing-email {
 	padding-top:5px;
 }
+.course-show-attendee-name p {
+	text-align:center; margin-bottom: 2px;
+}
+.course-show-attendee-company {
+	text-align:center;
+}
 }
 
 @media screen and (max-width:850px) {
@@ -335,7 +350,8 @@ ul.navbar-right a.login-button {
 .appear {
 	display:inline;
 }
-.goAway {
+.goAway,
+.divider {
 	display:none;
 }
 .navbar-header {

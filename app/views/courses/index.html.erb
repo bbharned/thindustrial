@@ -23,6 +23,11 @@
         <div class="course-listing-body">
           <%= truncate(course.description, length: 100) %>
           <div class="article-meta-details">
+            <div class="category-tags">
+              <% if course.categories.any? %>
+                <p><%= render course.categories %></p>
+              <% end %>
+            </div>
             <small>
             <div style="font-weight:bold;">
               <span style="font-weight:normal;">Time:</span> 

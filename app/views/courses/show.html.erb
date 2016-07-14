@@ -18,13 +18,13 @@
       <% end %>
     </div>
   <% end %>
-  <hr style="margin-bottom:5px;" />
+  <hr style="margin-bottom:5px; margin-top:10px;" />
   <div class="category-tags">
     <% if @course.categories.any? %>
       <p><%= render @course.categories %></p>
     <% end %>
   </div>
-  	<small>
+  <small>
   		Time: <%= @course.timeblock %>
 	</small>
 </div>  
@@ -46,10 +46,10 @@
 <br /><br />
 <% Schedule.where(course_id: @course.id).each do |schedule| %>
       <div class="row">
-        <div class="col-md-6" align="right">
+        <div class="col-md-6 course-show-attendee-name">
           <p><%= link_to "#{schedule.user.firstname} #{schedule.user.lastname}", user_path(schedule.user_id) %></p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 course-show-attendee-company">
           <p><%= schedule.user.company %></p>
         </div>
       </div>
