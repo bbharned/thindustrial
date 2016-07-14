@@ -4,7 +4,6 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 	
 	def setup
 		@user = User.create(firstname: "Brad", lastname: "Harris", email: "bharris@thinmanager.com", company: "ABC Company", street: "123 Main Street", city: "Springfield", state: "OH", zipcode: 12345, phone: "123-456-0987", password: "password", admin: true)
-		#@user2 = User.create(firstname: "Bill", lastname: "Smith", email: "bsmith@thinmanager.com", company: "TM Company", street: "123 Main Street", city: "Springfield", state: "OH", zipcode: 12345, phone: "123-456-0987", password: "password", admin: false)
 	end
 
 	test "get new category form and create category" do

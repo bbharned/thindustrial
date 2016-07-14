@@ -4,7 +4,6 @@ class ListCategoriesTest < ActionDispatch::IntegrationTest
 	def setup
 		@category = Category.create(name: "Productivity")
 		@category2 = Category.create(name: "Visualization")
-		#@user = User.create(firstname: "Brad", lastname: "Harris", email: "bharris@thinmanager.com", company: "ABC Company", street: "123 Main Street", city: "Springfield", state: "OH", zipcode: 12345, phone: "123-456-0987", password: "password", admin: true)
 		@user2 = User.create(firstname: "Bill", lastname: "Smith", email: "bsmith@thinmanager.com", company: "TM Company", street: "123 Main Street", city: "Springfield", state: "OH", zipcode: 12345, phone: "123-456-0987", password: "password", admin: false)
 	end
 

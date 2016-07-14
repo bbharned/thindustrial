@@ -130,6 +130,12 @@ ul.navbar-right a {
 .edit-link {
 	font-size:.5em;
 }
+.category-nav {
+	margin-top: 30px; margin-bottom: 20px;
+}
+.category-nav .very-tiny {
+	font-size:.65em; margin-bottom: 5px;
+}
 
 /************* Homepage ****************/
 /*
@@ -368,6 +374,13 @@ ul.navbar-right a.login-button {
 }
 .navbar-default {
 	border-bottom:1px solid #787878;
+}
+.category-nav {
+	margin-top: 10px; margin-bottom: 20px;
+	text-align: center;
+}
+.session-h1-header {
+	text-align: center;
 }
 .hp-splash-heading {
 	width:94%; font-size:2em !important;

@@ -1,14 +1,18 @@
 <div class="container courses-content page-content">
 
 <div class="row">
+<% if current_user.admin? %>
 <h1 class="col-xs-8">Thindustrial Sessions</h1>
+<% else %>
+<h1 class="col-xs-12 session-h1-header">Thindustrial Sessions</h1>
+<% end %>
 <% if logged_in? && current_user.admin %>
 <div class="col-xs-4" align="right" style="margin-top:25px;"><%= link_to 'Add New Course', new_course_path, class: "btn btn-default" %></div>
 </div>
 <hr />
 <% end %>
-
-
+<%= render 'shared/categories' %>
+<br />
 <% @courses.order(:timeblock).each do | course | %>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
