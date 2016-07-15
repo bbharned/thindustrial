@@ -22,7 +22,8 @@ before_action :require_admin, except: [:index, :show]
 	end
 
 	def show
-
+		@category = Category.find(params[:id])
+		@category_courses = @category.courses.all
 	end
 
 	

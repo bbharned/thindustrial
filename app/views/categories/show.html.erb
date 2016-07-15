@@ -1,0 +1,70 @@
+<div class="container courses-content page-content">
+
+<div class="row">
+<% if current_user.admin? %>
+<h1 class="col-xs-8"><%= @category.name + " Sessions" %></h1>
+<% else %>
+<h1 class="col-xs-12 session-h1-header"><%= @category.name + " Sessions" %></h1>
+<% end %>
+<% if logged_in? && current_user.admin %>
+<div class="col-xs-4" align="right" style="margin-top:25px;"><%= link_to 'Create New Session', new_course_path, class: "btn btn-default" %></div>
+</div>
+<hr />
+<% end %>
+<%= render 'shared/categories' %>
+<br />
+<% @category_courses.order(:timeblock).each do | course | %>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="well well-sm">
+        <div class="course-listing-title">
+          <%= link_to course.title, course_path(course) %>
+        </div>
+        <div class="course-listing-body">
+          <%= truncate(course.description, length: 100) %>
+          <div class="article-meta-details">
+            <div class="category-tags">
+              <% if course.categories.any? %>
+                <p><%= render course.categories %></p>
+              <% end %>
+            </div>
+            <small>
+            <div style="font-weight:bold;">
+              <span style="font-weight:normal;">Time:</span> 
+              <% if course.timeblock == 1 %>
+                <%= "Monday - 8am to 10am" %>
+              <% elsif course.timeblock == 2 %>
+                <%= "Monday - 10am to 12pm" %>
+              <% elsif course.timeblock == 3 %>
+                <%= "Monday - 12pm to 2pm" %>
+              <% elsif course.timeblock == 4 %>
+                <%= "Monday - 2pm to 4pm" %>
+              <% else %>
+                <%= course.timeblock %>
+              <% end %>  
+            </div>
+            </small>
+          </div>
+        </div>
+        <% if logged_in? %>
+          <div class="course-listing-actions" align="right">
+              <%= link_to 'Add to Schedule', schedules_path(:user_id => current_user.id, :course_id => course.id, :timeblock => course.timeblock),  method: :create, data: {confirm: "Are you sure you want to add this session to your schedule?"}, class: "btn btn-primary btn-sm" %> <!-- Change path to add new entry to schedules db table--> 
+            <% if current_user.admin? %>
+              <%= link_to 'Edit', edit_course_path(course), class: "btn btn-default btn-sm" %> 
+              <%= link_to 'Delete', course_path(course), method: :delete, 
+                        data: {confirm: "Are you sure you want to delete this session?"}, 
+                        class: "btn  btn-danger btn-sm", style: "color:#FFFFFF;" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<br>
+
+
+
+</div>

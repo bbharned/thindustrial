@@ -8,6 +8,7 @@
 		<div class="row">
 			<div class="col-sm-12">	
 				<ul>
+				<li class="sub-nav-link col-sm-2" style="text-align:center;"><%= link_to "All Sessions", courses_path %></li>
 				<% Category.all.each do | category | %>
 					<li class="sub-nav-link col-sm-2" style="text-align:center;"><%= link_to category.name, category_path(category) %></li>
 				<% end %>

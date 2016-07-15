@@ -218,6 +218,12 @@ ul.navbar-right a {
 .category-tags p {
 	margin-bottom: 12px !important;
 }
+.category-index-listings li.course-title {
+	margin-bottom: 0px !important;
+}
+.category-index-listings .well {
+	padding-bottom: 8px !important;
+} 
 .input_checkbox input {
 	width: auto !important;
 }
