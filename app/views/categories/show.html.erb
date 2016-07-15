@@ -2,7 +2,7 @@
 
 <div class="row">
 <% if current_user.admin? %>
-<h1 class="col-xs-8"><%= @category.name + " Sessions" %></h1>
+<h1 class="col-xs-8"><%= @category.name + " Sessions" %><br /><span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category), style: "color:#FFFFFF;" %></span></h1>
 <% else %>
 <h1 class="col-xs-12 session-h1-header"><%= @category.name + " Sessions" %></h1>
 <% end %>

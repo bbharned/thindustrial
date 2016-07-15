@@ -7,9 +7,11 @@ before_action :require_admin, except: [:index, :show]
 		@categories = Category.all
 	end
 
+
 	def new
 		@category = Category.new
 	end
+
 
 	def create
 		@category = Category.new(category_params)
@@ -21,10 +23,28 @@ before_action :require_admin, except: [:index, :show]
 		end
 	end
 
+
+	def edit
+		@category = Category.find(params[:id])
+	end
+
+	def update
+		@category = Category.find(params[:id])
+		if @category.update(category_params)
+			flash[:success] = "Name of Category was successfully updated"
+			redirect_to category_path(@category)
+		else
+			render 'edit'
+		end
+	end
+
+
 	def show
 		@category = Category.find(params[:id])
 		@category_courses = @category.courses.all
 	end
+
+	
 
 	
 
