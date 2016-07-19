@@ -1,9 +1,12 @@
 class UserMailer < ApplicationMailer
-    default from: 'info@example.com'
+    default from: 'bharned@thinmanager.com'
  
   def welcome_email(user)
     @user = user
     @url  = 'http://localhost:3000/login'
-    mail(to: @user.email, subject: 'Welcome to Thindustrial')
+    delivery_options = { user_name: 'bharned@thinmanager.com',
+                         password: 'Corv3tt3',
+                         address: 'smtp.gmail.com' }
+    mail(to: @user.email, subject: 'Welcome to Thindustrial', delivery_method_options: delivery_options)
   end
 end

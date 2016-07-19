@@ -18,7 +18,7 @@ def create
 	
 	if @user.save
       session[:user_id] = @user.id
-      UserMailer.welcome_email(@user).deliver_now
+      UserMailer.welcome_email(@user).deliver
   		flash[:success] = "Welcome to Thindustrial #{@user.firstname}"
   		redirect_to user_path(@user)
 	else
