@@ -1,7 +1,8 @@
 <div class="container page-content">
+
 <h1 align="center">Thindustrial Users <span style="font-weight: lighter; font-size:.5em;">(<%= User.all.count %> total)</h1>
 
-<% @users.each do |user| %>
+<% @users.order(:lastname).each do |user| %>
 	<ul class="listing">
 		<div class="row">
 			<div class="well" style="padding:5px 20px; min-height:60px; text-align:center;">

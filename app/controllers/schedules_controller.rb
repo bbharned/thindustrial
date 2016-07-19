@@ -52,6 +52,9 @@ class SchedulesController < ApplicationController
 		if !current_user and !current_user.admin
 	      flash[:danger] = "You can only change your own schedule"
 	      redirect_to user_path(current_user)
+	    elsif current_user.admin
+	    	@schedule.destroy
+	      	flash[:success] = "Session was successfully removed from schedule."
 	    else
 	      @schedule.destroy
 	      flash[:success] = "Session was successfully removed from your schedule."

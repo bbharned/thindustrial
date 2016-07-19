@@ -18,6 +18,7 @@ def create
 	
 	if @user.save
       session[:user_id] = @user.id
+      UserMailer.welcome_email(@user).deliver_now
   		flash[:success] = "Welcome to Thindustrial #{@user.firstname}"
   		redirect_to user_path(@user)
 	else
@@ -52,7 +53,11 @@ end
 
 def destroy
   @user = User.find(params[:id])
-  @user.destroy
+  @schedulesout = Schedule.where(user_id: @user.id)
+  @schedulesout.destroy_all
+  if @schedulesout.destroy_all
+    @user.destroy
+  end
   flash[:danger] = "User and courses scheduled for user have been removed."
   redirect_to users_path
 end
