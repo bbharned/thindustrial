@@ -39,6 +39,10 @@
                 <%= "Monday - 12pm to 2pm" %>
               <% elsif course.timeblock == 4 %>
                 <%= "Monday - 2pm to 4pm" %>
+              <% elsif course.timeblock == 5 %>
+                <%= "Tuesday - 8am to 10am" %>
+              <% elsif course.timeblock == 6 %>
+                <%= "Tuesday - 10am to 12pm" %>
               <% else %>
                 <%= course.timeblock %>
               <% end %>  
