@@ -94,12 +94,9 @@ end
 def make_payment
   @user = User.find(params[:id])
   @authorize_payment = authorize_payment
-  if @authorize_payment
-    flash[:success] = "Payment Saved Successfully"
+  if AuthorizeNet::API::MessageTypeEnum::Ok
+    #flash[:success] = "Payment Saved Successfully"
     redirect_to user_path(@user)
-  else 
-    flash[:danger] = "Payment Did Not Go Through"
-    render 'charge'
   end
 end
 
@@ -122,8 +119,29 @@ private
   end
 
   def authorize_payment
-      
-          
+      require 'rubygems'
+      require 'yaml'
+      require 'authorizenet'
+
+      config = YAML.load_file(File.dirname(__FILE__) + "/credentials.yml")
+
+      transaction = AuthorizeNet::API::Transaction.new(config['api_login_id'], config['api_transaction_key'], :gateway => :sandbox)
+
+      request = AuthorizeNet::API::CreateTransactionRequest.new
+
+      request.transactionRequest = AuthorizeNet::API::TransactionRequestType.new()
+      request.transactionRequest.amount = 16.00
+      request.transactionRequest.payment = AuthorizeNet::API::PaymentType.new
+      request.transactionRequest.payment.creditCard = AuthorizeNet::API::CreditCardType.new('4242424242424242', '0220', '123') 
+      request.transactionRequest.transactionType = AuthorizeNet::API::TransactionTypeEnum::AuthCaptureTransaction
+
+      response = transaction.create_transaction(request)
+
+      if response.messages.resultCode == AuthorizeNet::API::MessageTypeEnum::Ok
+        flash[:success] = "Successful charge (auth + capture) (authorization code: #{response.transactionResponse.authCode})"
+      else
+        flash[:danger] = response.messages.messages[0].text
+      end  
   end
 
   def require_same_user
