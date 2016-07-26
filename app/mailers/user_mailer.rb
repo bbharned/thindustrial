@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
                          authentication: 'plain',
                          enable_starttls_auto: true
                           }
-    mail(to: @user.email, subject: 'Welcome to Thindustrial', delivery_method_options: delivery_options)
+    mail(to: @user.email, from: 'ACP ThinManager', subject: 'Welcome to Thindustrial', delivery_method_options: delivery_options)
   end
 
   

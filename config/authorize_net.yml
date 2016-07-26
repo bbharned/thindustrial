@@ -1,0 +1,8 @@
+default:
+  api_login_id: 9AeA7z9Up7
+  api_transaction_key: 9J2234rp2QGn72da
+  merchant_hash_value: MD5_TEST
+
+development: 
+test: 
+production: 

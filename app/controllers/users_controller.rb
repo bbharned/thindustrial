@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:edit, :update, :show]
-before_action :require_user, only: [:index, :edit, :update, :show]
-before_action :require_same_user, only: [:edit, :update, :destroy]
+before_action :set_user, only: [:edit, :update, :show, :charge]
+before_action :require_user, only: [:index, :edit, :update, :show, :charge]
+before_action :require_same_user, only: [:edit, :update, :destroy, :charge]
 before_action :require_admin, only: [:destroy]
 
 def index 
@@ -51,6 +51,34 @@ def show
   #@schedules = Schedule.all
 end
 
+
+def charge 
+  if logged_in? && current_user == @user || current_user.admin == true
+    @user = User.find(params[:id])
+
+  #if form_for(:payment).submit
+    #@authorize_payment = PaymentsController.payment(payment_params)
+    #if @authorize_payment.response.messages.resultCode == MessageTypeEnum::Ok
+      #@payment = Payment.new(user_id: @user.id, email: @user.email, token: "")
+      #if @payment.save
+        #flash[:success] = "Payment Saved Successfully"
+        #redirect_to users_path
+      #else
+        #flash[:danger] = "There was a problem saving your payment"
+        #redirect_to users_path
+      #end
+    #else 
+      #flash[:danger] = "There was a problem charging the card"
+      #render charge
+    #end
+  #end
+  else 
+    flash[:danger] = "Only Admins can perform that action"
+    redirect_to root_path
+  end
+end
+
+
 def destroy
   @user = User.find(params[:id])
   @schedulesout = Schedule.where(user_id: @user.id)
@@ -62,10 +90,27 @@ def destroy
   redirect_to users_path
 end
 
+
+def make_payment
+  @user = User.find(params[:id])
+  @authorize_payment = authorize_payment
+  if @authorize_payment
+    flash[:success] = "Payment Saved Successfully"
+    redirect_to user_path(@user)
+  else 
+    flash[:danger] = "Payment Did Not Go Through"
+    render 'charge'
+  end
+end
+
   
 private 
   def user_params
     params.require(:user).permit(:firstname, :lastname, :company, :street, :city, :state, :zipcode, :phone, :email, :password)
+  end
+
+  def payment_params
+    params.require(:payment).permit(:card_number, :card_cvv, :card_expires_month, :card_expires_year)
   end
 
   def set_user 
@@ -74,6 +119,11 @@ private
 
   def register
 
+  end
+
+  def authorize_payment
+      
+          
   end
 
   def require_same_user
@@ -89,6 +139,8 @@ private
       redirect_to users_path
     end
   end
+
+  
 
 
 end

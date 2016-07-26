@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
   resources :users, except: [:new]
+  get '/users/:id/charge', to: :charge, controller: 'users'
+  post '/users/:id/charge', to: :make_payment, controller: 'users'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
