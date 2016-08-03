@@ -22,13 +22,18 @@ ul.navbar-right a {
 <div class="hp-splash">
 	<div class="container">
 		<h1 class="hp-splash-heading">the<br /><span>industrial mobility</span><br />conference</h1>
-		<p class="hp-splash-date-heading">SOMECITY. MONTH 8-12, 2017</p>
+		<p class="hp-splash-date-heading">SOMECITY. JUNE, 2017</p>
 		<% if !logged_in? %>
 		<%=link_to 'REGISTER', register_path, type: "button", class: "btn btn-default hp-splash-register" %>
 		<% else %>
 		<%=link_to 'MY ACCOUNT', user_path(current_user), type: "button", class: "btn btn-default hp-splash-register" %>
 		<% end %>
 	</div>
+<div class="banner-dont-miss">
+	<div class="container">
+		<p><span> &darr;&nbsp;&nbsp;&nbsp; </span> Scroll Down <span> &nbsp;&nbsp;&nbsp;&darr; </span></p>
+	</div>
+</div>
 </div>
 <div class="hp-span-one">
 	<div class="container">
@@ -37,3 +42,37 @@ ul.navbar-right a {
 		<p align="center">We are revolutionizing the factory and how it operates. <span class="goAway"><br /></span>Mobile solutions, state of the art security and full control of the floor are at your finger tips. All of this and more makes Thindustrial the event you truly don't want to miss.</p>
 	</div>
 </div>
+
+<div class="hp-edge-span">
+	<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-md-offset-2">
+			<h2>Introducing</h2>
+		</div>
+	</div>
+		<div class="edge-logo">
+		 	<%= image_tag 'Edge-Logo.png' %> 
+		</div>
+		<div class="edge-mockup">
+			<%= image_tag 'ThinManager-Edge-Mockup.jpg' %> 
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+(function() {
+    
+    $(".banner-dont-miss").delay(1500).animate({
+        height: '65'
+        }, 500, "swing", function() {
+        	$('.banner-dont-miss p').fadeIn(100);
+        	$('.banner-dont-miss p span').delay(600).animate({opacity: '1'}, 400, "swing");
+        }).delay(2500).animate({height: '0'}, 400, "swing", function() {
+        	$('.banner-dont-miss p').fadeOut(0);
+        	$('.banner-dont-miss p span').animate({opacity: '0'}, 0, "swing");
+        });;
+    
+})();
+</script>
