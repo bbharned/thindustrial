@@ -232,6 +232,13 @@ ul.navbar-right a {
 .hp-edge-span .sub-points .col-md-3 p:last-child {
 	margin-bottom: 35px;
 }
+.hp-more-about {
+	width:100%; min-height: 200px; background-color: #000000; color:#FFFFFF;
+	padding-top: 75px; padding-bottom: 75px;
+}
+.hp-more-about p {
+	font-size:1.25em; line-height: 30px; margin-bottom: 25px; font-weight: 100;
+}
 
 
 
