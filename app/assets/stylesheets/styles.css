@@ -236,8 +236,34 @@ ul.navbar-right a {
 	width:100%; min-height: 200px; background-color: #000000; color:#FFFFFF;
 	padding-top: 75px; padding-bottom: 75px;
 }
-.hp-more-about p {
+.hp-more-about p,
+.hp-wanna-go p {
 	font-size:1.25em; line-height: 30px; margin-bottom: 25px; font-weight: 100;
+}
+.hp-more-about p:last-child {
+	margin-bottom: 35px;
+}
+.hp-speakers {
+	width:100%; min-height: 300px; background-color: #FFFFFF;
+	padding-top: 75px; padding-bottom: 75px;
+}
+.hp-speakers .speaker {
+	text-align: center; margin-top: 55px; margin-bottom: 45px;
+}
+.hp-speakers .speaker .bio-pic {
+	width:100%; height:150px; background-color: #818181; max-width: 200px; margin: auto;
+	margin-bottom: 25px; 
+}
+.hp-speakers .speaker h4 {
+	font-weight: 500; margin-bottom: 12px; font-size: 1.3em;
+}
+
+.hp-wanna-go {
+	width:100%; min-height: 200px;
+	padding-top: 75px; padding-bottom: 75px;
+}
+.hp-wanna-go .justify-this img {
+	width:100%;
 }
 
 
