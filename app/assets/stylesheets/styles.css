@@ -85,6 +85,9 @@ a:hover {
 .bold {
 	font-weight:bold;
 }
+.tiny {
+	font-size:.75em !important; font-style: italic;
+}
 .app-messages {
 	margin-top: 180px; margin-bottom: -180px; 
 }
@@ -204,18 +207,18 @@ ul.navbar-right a {
 	font-size: 2em; margin-top: 75px; margin-bottom: -35px;
 }
 .hp-edge-span .edge-logo {
-	width:90%; max-width:800px; position: relative; z-index: 7777;
+	width:90%; max-width:600px; position: relative; z-index: 7777; margin: auto; margin-top: 30px;
 }
 .hp-edge-span .edge-mockup {
 	width: 96%; max-width:800px; float:right; position:relative; z-index: 5555; 
-	margin-top: -150px; margin-right: -250px; /*border: 1px solid #000000;*/
+	margin-top: 0px; margin-right: -150px; /*border: 1px solid #000000;*/
 }
 .hp-edge-span .edge-mockup img,
 .hp-edge-span .edge-logo img {
 	width: 100%;
 }
 .hp-edge-span h1 {
-	font-size:3em !important; line-height: 65px;
+	font-size:3em !important; line-height: 65px; padding-left: 150px;
 }
 .hp-edge-span .edge-heading {
 	margin-top: 75px;
@@ -234,10 +237,12 @@ ul.navbar-right a {
 }
 .hp-more-about {
 	width:100%; min-height: 200px; background-color: #000000; color:#FFFFFF;
-	padding-top: 75px; padding-bottom: 75px;
+	padding-top: 55px; padding-bottom: 55px; background-image: url(crowd.jpg);
+	background-size: cover; background-position: center center;
 }
 .hp-more-about p,
-.hp-wanna-go p {
+.hp-wanna-go p,
+.hp-app-span p {
 	font-size:1.25em; line-height: 30px; margin-bottom: 25px; font-weight: 100;
 }
 .hp-more-about p:last-child {
@@ -251,8 +256,9 @@ ul.navbar-right a {
 	text-align: center; margin-top: 55px; margin-bottom: 45px;
 }
 .hp-speakers .speaker .bio-pic {
-	width:100%; height:150px; background-color: #818181; max-width: 200px; margin: auto;
-	margin-bottom: 25px; 
+	width:100%; height:150px; background-color: #818181; max-width: 150px; margin: auto;
+	margin-bottom: 25px; border-radius: 50%; background-image: url(profile-holder-male);
+	background-position: center top; 
 }
 .hp-speakers .speaker h4 {
 	font-weight: 500; margin-bottom: 12px; font-size: 1.3em;
@@ -264,6 +270,24 @@ ul.navbar-right a {
 }
 .hp-wanna-go .justify-this img {
 	width:100%;
+}
+.hp-app-span {
+	width:100%; min-height: 500px; padding: 100px 0px; background-color: #FFFFFF;
+}
+.hp-app-span span.bolder {
+	font-weight:700;
+}
+.hp-app-span ol {
+	margin-top: 20px; margin-bottom: 35px; margin-left: 10%;
+}
+.hp-app-span ol li {
+	font-size:1.15em; margin-bottom: 10px; line-height: 22px; list-style:decimal;
+}
+.directions-image {
+	margin-bottom: 50px;
+}
+.directions-image img {
+	width:100%; max-width: 300px;
 }
 
 
@@ -384,7 +408,10 @@ small {
 
 @media screen and (max-width:1650px) {
 .hp-edge-span .edge-mockup {
-	margin-top:0px; margin-right:0px;	
+	margin-top:0px; margin-right:-50px;	
+}
+.hp-edge-span h1 {
+	padding-left: 20px;
 }
 }
 @media screen and (max-width:1199px) {
@@ -401,7 +428,7 @@ small {
 	font-size: 2em; margin-top: 75px; margin-bottom: 0px; text-align: center;
 }
 .hp-edge-span h1 {
-	font-size:2.25em !important; line-height: 45px;
+	font-size:2.25em !important; line-height: 45px; padding-left: 0px;
 }
 .hp-edge-span .edge-logo {
 	margin:auto;

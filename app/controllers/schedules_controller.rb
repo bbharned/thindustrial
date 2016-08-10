@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
-	#before_action :require_user, only: [:index, :create, :edit, :update, :show]
+	before_action :require_user, only: [:index, :create, :edit, :update, :show]
 	before_action :set_schedule, only: [:show, :destroy]
-	#before_action :require_unique_time, only: [:create]
+	#before_action :set_user, only: [:destroy]
 
 	def index
 		if logged_in? && !current_user.admin?
@@ -55,6 +55,7 @@ class SchedulesController < ApplicationController
 	    elsif current_user.admin
 	    	@schedule.destroy
 	      	flash[:success] = "Session was successfully removed from schedule."
+	      	redirect_to user_path(@schedule.user_id)
 	    else
 	      @schedule.destroy
 	      flash[:success] = "Session was successfully removed from your schedule."
@@ -67,6 +68,10 @@ class SchedulesController < ApplicationController
 	def set_schedule
       @schedule = Schedule.find(params[:id])
     end	
+
+   #  def set_user 
+   #  	@user = User.where(id: @user.id)
+  	# end
 
     
 		# Never trust parameters from the scary internet, only allow the white list through.

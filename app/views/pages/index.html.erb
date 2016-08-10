@@ -22,7 +22,7 @@ ul.navbar-right a {
 <div class="hp-splash">
 	<div class="container">
 		<h1 class="hp-splash-heading">the<br /><span>industrial mobility</span><br />conference</h1>
-		<p class="hp-splash-date-heading">SOMECITY. JUNE, 2017</p>
+		<p class="hp-splash-date-heading">ORLANDO. JUNE, 2017</p>
 		<% if !logged_in? %>
 		<%=link_to 'REGISTER', register_path, type: "button", class: "btn btn-default hp-splash-register" %>
 		<% else %>
@@ -47,40 +47,40 @@ ul.navbar-right a {
 	<div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2>Introducing</h2>
+			<h2 align="center">Introducing</h2>
 		</div>
 	</div>
 		<div class="edge-logo">
-		 	<%= image_tag 'Edge-Logo.png' %> 
+		 	<%= image_tag 'core_logo.png' %> 
 		</div>
 		<div class="edge-mockup">
-			<%= image_tag 'ThinManager-Edge-Mockup.jpg' %> 
+			<%= image_tag 'ThinManager-Core-Server.png' %> 
 		</div>
 		<div class="row edge-heading">
-			<h1>Gain the Edge <span class="goAwaySooner"><br /></span>on Device Configuration and Deployment</h1>
+			<h1>The Core <span class="goAwaySooner"><br /></span>of Device Configuration and Deployment</h1>
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
-				<p>The all new Edge device from ThinManager provides a turnkey solution for configuring and deploying the world's most advanced thin client management system. The Edge comes preloaded with Windows Server 2016, TS Cals, pre-activated RDS licenses and, of course, ThinManager.</p>
+				<p>The all new Core from ThinManager provides a turnkey solution for configuring and deploying the world's most advanced thin client management system. Core comes preloaded with Windows Server 2016, TS Cals, pre-activated RDS licenses and, of course, ThinManager.</p>
 
-				<p>The Edge device incorporates new ThinManager plug-n-play technology which auto-senses ThinManager-Ready devices and pre-configures them for immediate deployment. The Edge device also auto-senses other Edge devices so that redundancy is automatically enabled when connected additional Edge devices to your network.</p>
+				<p>The Core Server device incorporates new ThinManager plug-n-play technology which auto-senses ThinManager-Ready devices and pre-configures them for immediate deployment. Core  also auto-senses other Edge devices so that redundancy is automatically enabled when connected additional Edge devices to your network.</p>
 			</div>
 		</div>
 		<br /><span class="goAway"><br /></span>
 		<div class="row sub-points">
 			<div class="col-md-3">
-				<h3>Edge Cloud Services</h3>
-				<p>Edge devices can be easily configured to connect to ThinManager Edge Cloud Services. ThinManager ECS can store configurations and other important data in the secure cloud. ACP provides several APIs for connecting your ThinManager plant floor data to ERP or other enterprise software platforms used to analyze and share information at the corporate level.</p>
+				<h3>Core Cloud Services</h3>
+				<p>Edge devices can be easily configured to connect to ThinManager Core Cloud Services. ThinManager CCS can store configurations and other important data in the secure cloud. ACP provides several APIs for connecting your ThinManager plant floor data to ERP or other enterprise software platforms used to analyze and share information at the corporate level.</p>
 			</div>
 			<div class="col-md-3 col-md-offset-1">
-				<h3>Cutting Edge Plant Floor</h3>
+				<h3>Your Core Plant Floor</h3>
 				<p>ThinManager customers have always used the platform as the go-to solution for managing every PC, thin client and mobile device. Now, that same solution brings all of the ease-of-use of ThinManager to the server.</p>
 
-				<p>The Edge server supports ThinManager's powerful new virtualization technology (DRIVE) Deployable Resource in Virtualized Environment. Using the Edge configuration wizard, administrator's can easily virtualize their Remote Desktop Server(s) without incurring any additional costs for a third part virtualization solution.</p>
+				<p>The Core server supports ThinManager's powerful new virtualization technology (DRIVE) Deployable Resource in Virtualized Environment. Using the Core configuration wizard, administrator's can easily virtualize their Remote Desktop Server(s) without incurring any additional costs for a third part virtualization solution.</p>
 			</div>
 			<div class="col-md-3 col-md-offset-1">
-				<h3>The Edge of the Future</h3>
-				<p>Centralized, client-based deployment is now widely accepted as the best way to deploy and manage plant floor applications and devices. The new ThinManager Edge now makes using thin technology as easy as opening the box, plugging it in and turning it on. Don't waste your time and money piecing together a thin client solution. Get ThinManager and gain the Edge on your competition today.</p>
+				<h3>The Core of the Future</h3>
+				<p>Centralized, client-based deployment is now widely accepted as the best way to deploy and manage plant floor applications and devices. The new ThinManager Core now makes using thin technology as easy as opening the box, plugging it in and turning it on. Don't waste your time and money piecing together a thin client solution. Gaining the edge on your competition begins at the Core.</p>
 			</div>
 		</div>
 	</div>
@@ -136,6 +136,34 @@ ul.navbar-right a {
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="hp-app-span">
+<div class="container">
+<h1>No Need to Download, Just Save!</h1>
+<div class="row">
+<div class="col-md-4">
+	<p>No App Store, No Play Store... This year the website is also the app! Just Save this page to your mobile device's desktop. Follow the directions below to learn how. Click to launch and log in to manage the event.</p>
+	<span class="bolder">iOS Devices</span>
+	<ol>
+	<li>Open your browser (e.g.&nbsp;Safari) on the device and navigate to www.thindustrial.com.</li>
+	<li>Click the icon at the bottom center of your window that looks like a box with an arrow coming out the top of it.</li>
+	<li>Scroll right in options to "Add to Home Screen" and select it.</li>
+	</ol>
+	<span class="bolder">Android Devices</span>
+	<ol>
+	<li>Open your browser (e.g.&nbsp;Chrome) on the device and navigate to www.thindustrial.com.</li>
+	<li>Click the icon in the upper right corner of your window that looks like three vertical dots.</li>
+	<li>select "Add to Home Screen".</li>
+	</ol>
+	<p class="tiny">* Directions may differ depending on devise and operating system</p>
+</div>
+<div class="col-md-3 col-md-offset-1 directions-image" align="center">
+	<%= image_tag 'iPhoneSave.png' %> 
+</div>
+<div class="col-md-3 col-md-offset-1 directions-image" align="center">Android Directions Image</div>
+</div>
+</div>
 </div>
 
 
