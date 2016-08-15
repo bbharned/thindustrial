@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
   resources :users, except: [:new]
-  get '/users/:id/charge', to: :charge, controller: 'users', as: 'charge'
-  post '/users/:id/charge', to: :authorize_payment, controller: 'payments'
+  #get '/users/:id/charge', to: :charge, controller: 'users', as: 'charge'
+  #post '/users/:id/charge', to: :authorize_payment, controller: 'payments'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

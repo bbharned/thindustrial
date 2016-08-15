@@ -385,7 +385,7 @@ small {
 .user-schedule-class-remove {
 	text-align: right;
 }
-.listing-name, .listing-company, .listing-email {
+.listing-name, .listing-company, .listing-email, .listing-balance {
 	padding-top:15px;
 }
 .schedule-listing .listing-name {

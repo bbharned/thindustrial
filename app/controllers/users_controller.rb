@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:edit, :update, :show, :charge]
-before_action :require_user, only: [:index, :edit, :update, :show, :charge]
-before_action :require_same_user, only: [:edit, :update, :destroy, :charge]
+before_action :set_user, only: [:edit, :update, :show]
+before_action :require_user, only: [:index, :edit, :update, :show]
+before_action :require_same_user, only: [:edit, :update, :destroy]
 before_action :require_admin, only: [:destroy]
 
 def index 
@@ -52,14 +52,14 @@ def show
 end
 
 
-def charge 
-  if logged_in? && current_user == @user || current_user.admin == true
-    @user = User.find(params[:id])
-  else 
-    flash[:danger] = "Only Admins can perform that action"
-    redirect_to user_path(@user)
-  end
-end
+# def charge 
+#   if logged_in? && current_user == @user || current_user.admin == true
+#     @user = User.find(params[:id])
+#   else 
+#     flash[:danger] = "Only Admins can perform that action"
+#     redirect_to user_path(@user)
+#   end
+# end
 
 
 def destroy
