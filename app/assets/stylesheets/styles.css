@@ -357,6 +357,21 @@ small {
 .profile-content h2 {
 	font-weight:bold; font-size:1.25em; text-align: center; margin-bottom: 10px;
 }
+h3.actions-heading {
+	font-weight:bold; margin-bottom: 7px; font-size: 1.25em;
+}
+.action-blocks {
+	width:100%; min-height:70px; margin-top: 10px; 
+}
+.a-block {
+	float:left; width:33%; border-right:1px solid #999999; min-height: 40px;
+}
+.a-block:last-child {
+	border-right:0px;
+}
+.a-block p.teenie {
+	font-size:.6em; line-height: 10px;
+}
 .grav-image {
 	margin:auto; text-align: center; margin-bottom: 3px;
 }

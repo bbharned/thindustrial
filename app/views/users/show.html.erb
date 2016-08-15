@@ -17,6 +17,17 @@
 	<p align="center" style="margin-bottom:10px !important;"><%= @user.city %>, <%= @user.state %> <%= @user.zipcode %></p>
 	<p align="center">Email: <%= @user.email %></p>
 	<br /><br />
+	<% if current_user == @user or current_user.admin? %>
+	<div class="well" align="center" style="border-radius:10px; background-color:#C3CFD4;">
+		<h3 class="actions-heading">Actions Center</h3>
+		<p>Current Registration Balance = <span style="font-weight:bold;">$<%= @user.balance %></span></p>
+		<div class="action-blocks">
+		<div class="a-block"><%= link_to (image_tag 'action-schedule.png'), user_path(@user) %><p class="teenie">print<br />schedule</p></div>
+		<div class="a-block"><%= link_to (image_tag 'action-po.png'), user_path(@user) %><p class="teenie">email<br />invoice</p></div>
+		<div class="a-block"><%= link_to (image_tag 'action-card.png'), user_path(@user) %><p class="teenie">pay by<br />card</p></div>
+		</div>
+	</div>
+	<% end %>
 </div>
 
 
