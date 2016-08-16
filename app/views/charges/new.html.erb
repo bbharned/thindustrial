@@ -1,3 +1,12 @@
+<div class="container page-content">
+
+<div class="charge-page-content">
+<h2>Thindustrial Registration Payment</h2>
+
+<p>By using this charge form you are constenting ACP to charge the card you enter the amount listed.  ACP will not keep this card information on file and will not charge any reoccurring charges at anytime to the card. If you have questions, pllease <a href="mailto:bharned@thinmanager.com">email us</a> and we will be happy to help.</p>
+
+<p>Please click the button below to make payment by card.</p>
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -5,14 +14,21 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
+    <label class="amount" style="margin-bottom:10px;">
+      <span>Amount: <span style="font-weight:bold;">$1,000.00</span></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Thindustrial Registration"
-          data-amount="500"
+          data-amount="100000"
           data-locale="auto"></script>
 <% end %>
+
+
+
+
+</div>
+
+</div>

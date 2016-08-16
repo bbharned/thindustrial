@@ -24,7 +24,7 @@
 		<div class="action-blocks">
 		<div class="a-block"><%= link_to (image_tag 'action-schedule.png'), user_path(@user) %><p class="teenie">print<br />schedule</p></div>
 		<div class="a-block"><%= link_to (image_tag 'action-po.png'), user_path(@user) %><p class="teenie">email<br />invoice</p></div>
-		<div class="a-block"><%= link_to (image_tag 'action-card.png'), user_path(@user) %><p class="teenie">pay by<br />card</p></div>
+		<div class="a-block"><%= link_to (image_tag 'action-card.png'), new_charge_path %><p class="teenie">pay by<br />card</p></div>
 		</div>
 	</div>
 	<% end %>
