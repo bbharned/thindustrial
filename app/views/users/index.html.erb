@@ -15,11 +15,14 @@
 					<li class="col-md-4 listing-email"><%= user.email %></li>
 				<% end %>
 				<% if logged_in? && current_user.admin? %>
+					<li class="col-md-1">
+						<%= link_to gravatar_for(user, size: 50), user_path(user) %>
+					</li>
 					<li class="col-md-2 listing-name"><%= link_to "#{user.firstname} #{user.lastname}", user_path(user) %></li>
 					<li class="col-md-3 listing-company"><%= user.company %></li>
 					<li class="col-md-3 listing-email"><%= user.email %></li>
 					<li class="col-md-2 listing-balance">Balance: $<%= user.balance %></li>
-					<li class="col-md-2 listing-email"><%= link_to "Delete User", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user.firstname}?" } %></li>
+					<li class="col-md-1 listing-email"><%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete #{user.firstname}?" } %></li>
 				<% end %>
 			</div>
 		</div>
