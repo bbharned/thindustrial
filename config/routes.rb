@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   #get '/users/:id/charge', to: :charge, controller: 'users', as: 'charge'
   #post '/users/:id/charge', to: :authorize_payment, controller: 'payments'
+  resources :charges
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
