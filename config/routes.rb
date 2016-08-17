@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'sponsors', to: 'pages#sponsors'
   get 'agenda', to: 'pages#agenda'
   get 'contact', to: 'pages#contact'
+  get 'payments', to: 'pages#payments'
 
   resources :users, except: [:new]
   #get '/users/:id/charge', to: :charge, controller: 'users', as: 'charge'

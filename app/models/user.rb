@@ -9,17 +9,7 @@ class User < ActiveRecord::Base
 				uniqueness: { case_sensitive: false },
 				format: { with: VALID_EMAIL_REGEX }
 	has_secure_password
-	has_one :payment
-	accepts_nested_attributes_for :payment
-
-
- #    def self.month_options
- #        Date::MONTHNAMES.compact.each_with_index.map { |name, i| ["#{i+1} - #{name}", i+1]}
- #    end
-    
- #    def self.year_options
- #        (Date.today.year..(Date.today.year+10)).to_a
- #    end
-
+	has_many :payments
+	#accepts_nested_attributes_for :payment
 
 end
