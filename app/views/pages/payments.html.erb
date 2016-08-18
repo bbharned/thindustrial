@@ -1,14 +1,16 @@
 <div class="container page-content">
-    <h1 align="center">Thindustrial Credit Card Payments</h1>
+    <h1 align="center">Thindustrial Card Payments</h1>
     <br />
     <% @payments.each do |payment| %>
         <ul class="listing">
         <div class="row">
-            <div class="well" style="padding:5px 20px; min-height:30px; text-align:center; margin-bottom:3px;">
+            <div class="well" style="padding:10px 20px; min-height:45px; text-align:center; margin-bottom:5px; line-height:25px; font-size:.85em;">
+               <li class="col-md-3"><%= payment.created_at %></li>
                <li class="col-md-2"><%= User.find(payment.user_id).firstname %> <%= User.find(payment.user_id).lastname %></li>
-               <li class="col-md-4"><%= payment.email %></li>
-               <li class="col-md-2"><%= payment.token %></li>
-               <li class="col-md-2" style="color:blue;">$<%= payment.amount %></li>
+               <li class="col-md-3"><%= User.find(payment.user_id).company %></li>
+               
+               <li class="col-md-3"><%= payment.token %></li>
+               <li class="col-md-1" style="color:blue;">$<%= payment.amount %></li>
             </div>
         </div>
     </ul>

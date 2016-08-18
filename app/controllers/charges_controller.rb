@@ -25,14 +25,22 @@ class ChargesController < ApplicationController
         :currency    => 'usd'
       )
 
-      if charge
-        #@payment = Payment.new()
-        flash[:success] = "Payment was successfully made for " + @@user.firstname + @@user.lastname
-        redirect_to user_path(@@user)
+      if charge["paid"] == true
+        @pay_dollars = @amount/100
+        @payment = Payment.new(user_id: @@user.id, email: customer.email, token: charge.id, amount: @pay_dollars)
+        
+        if @payment.save
+          @@user.balance = @@user.balance - @pay_dollars
+          if @@user.save  
+            flash[:success] = "Payment was successfully made for " + @@user.firstname + " " + @@user.lastname
+            redirect_to user_path(@@user)
+          end
+        end
       end
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
+      redirect_to new_charges_path
     end
 
 
