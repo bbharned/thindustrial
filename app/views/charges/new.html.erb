@@ -3,7 +3,7 @@
 <div class="charge-page-content">
 <h2>Thindustrial Registration Payment</h2>
 <p>payment for <%= @user.firstname %> <%= @user.lastname %></p>
-<p>By using this charge form you are consenting ACP to charge the card you enter the amount listed.  ACP will not keep this card information on file and will not charge any reoccurring charges at anytime to the card. If you have questions, pllease <a href="mailto:bharned@thinmanager.com">email us</a> and we will be happy to help.</p>
+<p>By using this charge form you are consenting ACP to charge the card you enter the amount listed.  ACP will not keep this card information on file and will not charge any reoccurring charges at anytime to the card. If you have questions, please <a href="mailto:bharned@thinmanager.com">email us</a> and we will be happy to help.</p>
 
 <p>Please click the button below to make payment by card.</p>
 
@@ -15,16 +15,19 @@
       </div>
     <% end %>
     <label class="amount" style="margin-bottom:10px;">
-      <span>Amount: <span style="font-weight:bold;">$1,000.00</span></span>
+      <span>Amount Due: <span style="font-weight:bold;">$<%= @user.balance %></span></span>
     </label>
   </article>
-
+    <% if @user.balance > 0 %>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Thindustrial Registration"
-          data-amount="100000"
+          data-amount="<% @user.balance*100 %>"
           data-locale="auto">
       </script>
+    <% else %>  
+      <%= link_to "Go Back To Profile", user_path(@user), class: "btn btn-default" %>
+    <% end %> 
 <% end %>
 
 

@@ -27,7 +27,7 @@
 		<% end %>
 		<div class="action-blocks">
 		<div class="a-block"><%= link_to (image_tag 'action-schedule.png'), print_path(@user) %><p class="teenie">printable<br />schedule</p></div>
-		<div class="a-block"><%= link_to (image_tag 'action-po.png'), user_path(@user) %><p class="teenie">email<br />invoice</p></div>
+		<div class="a-block"><%= link_to (image_tag 'action-po.png'), user_path(@user), data: {confirm: "This will send a purchase order invoice to #{@user.email}. Click OK to send email now."} %><p class="teenie">email<br />invoice</p></div>
 		<div class="a-block"><%= link_to (image_tag 'action-card.png'), new_charge_path(:user_id => @user.id) %><p class="teenie">pay by<br />card</p></div>
 		</div>
 	</div>
