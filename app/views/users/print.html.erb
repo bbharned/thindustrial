@@ -1,0 +1,53 @@
+<style>
+@media print {
+.navbar,
+.navbar-default {
+    display:none;
+}
+.body {
+    background-color:none;
+}
+.print-schedule-content {
+    padding-top:35px !important;    
+}
+.print-schedule-content h3 {
+    margin-top: 0px;
+}
+}
+</style>
+
+<div class="container print-schedule-content page-content">
+<h3>Thindustrial Session Schedule for <%= @user.firstname %> <%= @user.lastname %></h3>
+    <h4>Monday</h4>
+        <div class="row print-headers">
+                <div class="col-sm-5 print-header-title">Session Title</div>
+                <div class="col-sm-4 print-header-time">Session Time</div>
+                <div class="col-sm-3 print-header-time">Session Location</div>
+        </div>
+    <% Schedule.where(user_id: @user).order(:timeblock).each do |schedule| %>
+            <% if schedule.timeblock == 1 or schedule.timeblock == 2 or schedule.timeblock == 3 or schedule.timeblock == 4 %>
+            <div class="print-schedule-class row">
+                <div class="col-sm-5 print-class-title"><%= schedule.course.title %></div>
+                <div class="col-sm-4 print-class-time"><%= schedule.timeblock %></div>
+                <div class="col-sm-3 print-class-location">Not Yet Assigned</div>
+            </div>
+            <% end %>
+    <% end %>
+
+    <h4>Tuesday</h4>
+        <div class="row print-headers">
+                <div class="col-sm-5 print-header-title">Session Title</div>
+                <div class="col-sm-4 print-header-time">Session Time</div>
+                <div class="col-sm-3 print-header-time">Session Location</div>
+        </div>
+    <% Schedule.where(user_id: @user).order(:timeblock).each do |schedule| %>
+            <% if schedule.timeblock == 5 or schedule.timeblock == 6 or schedule.timeblock == 7 or schedule.timeblock == 8 %>
+            <div class="print-schedule-class row">
+                <div class="col-sm-5 print-class-title"><%= schedule.course.title %></div>
+                <div class="col-sm-4 print-class-time"><%= schedule.timeblock %></div>
+                <div class="col-sm-3 print-class-location">Not Yet Assigned</div>
+            </div>
+            <% end %>
+    <% end %>
+
+</div>

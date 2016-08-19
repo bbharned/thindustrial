@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'payments', to: 'pages#payments'
 
   resources :users, except: [:new]
-  #get '/users/:id/charge', to: :charge, controller: 'users', as: 'charge'
+  get '/users/:id/print', to: :print, controller: 'users', as: 'print'
   #post '/users/:id/charge', to: :authorize_payment, controller: 'payments'
   resources :charges
 
