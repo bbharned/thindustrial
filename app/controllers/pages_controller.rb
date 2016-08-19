@@ -27,6 +27,7 @@ class PagesController < ApplicationController
     def payments
         @payments = Payment.all
         @users = User.all
+        @total = @payments.sum('amount')
     end
 
 

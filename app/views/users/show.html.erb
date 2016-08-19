@@ -20,7 +20,11 @@
 	<% if current_user == @user or current_user.admin? %>
 	<div class="well" align="center" style="border-radius:10px; background-color:#C3CFD4;">
 		<h3 class="actions-heading">Actions Center</h3>
-		<p>Current Registration Balance = <span style="font-weight:bold;">$<%= @user.balance %></span></p>
+		<% if @user.balance == 0 %>
+			<p style="color:blue;">Event Paid in Full</p>
+		<% else %>
+			<p>Current Registration Balance = <span style="font-weight:bold; color:#861214;">$<%= @user.balance %></span></p>
+		<% end %>
 		<div class="action-blocks">
 		<div class="a-block"><%= link_to (image_tag 'action-schedule.png'), user_path(@user) %><p class="teenie">print<br />schedule</p></div>
 		<div class="a-block"><%= link_to (image_tag 'action-po.png'), user_path(@user) %><p class="teenie">email<br />invoice</p></div>
